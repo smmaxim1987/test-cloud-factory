@@ -11,3 +11,7 @@ export type Ticker = {
   high24hr: string
   low24hr: string
 }
+
+export interface iTicker extends Ticker {
+  name: String
+}
