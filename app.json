@@ -1,9 +1,9 @@
 {
-  "name": "my-project",
-  "displayName": "my-project",
+  "name": "test-cloud-factory",
+  "displayName": "Test CloudFactory",
   "expo": {
-    "name": "my-project",
-    "slug": "my-project",
+    "name": "TestCloudFactory",
+    "slug": "TestCloudFactory",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
