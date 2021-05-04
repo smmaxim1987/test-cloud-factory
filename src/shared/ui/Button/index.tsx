@@ -1,11 +1,15 @@
-import React, { isValidElement } from 'react'
-import { TouchableOpacity, TouchableOpacityProps, Text } from 'react-native'
-import { styles } from './useStyles'
+import React, { isValidElement } from "react";
+import { TouchableOpacity, TouchableOpacityProps, Text } from "react-native";
+import { styles } from "./useStyles";
 
-export interface ButtonProps extends TouchableOpacityProps { }
+export interface ButtonProps extends TouchableOpacityProps {}
 
-export const Button: React.FC<ButtonProps> = ({ style, children, ...props }) => (
+export const Button: React.FC<ButtonProps> = ({
+  style,
+  children,
+  ...props
+}) => (
   <TouchableOpacity style={[styles.root, style]} {...props}>
     {isValidElement(children) ? children : <Text>{children}</Text>}
   </TouchableOpacity>
-)
+);

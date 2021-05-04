@@ -1,14 +1,14 @@
-import axios from 'axios'
-export * from './ticker'
+import axios from "axios";
+export * from "./ticker";
 
 export const api = axios.create({
-  baseURL: process.env.API_ROOT || 'https://poloniex.com',
-})
+  baseURL: process.env.API_ROOT || "https://poloniex.com",
+});
 
 api.interceptors.response.use(
-  response => response,
-  error => {
-    console.log(error.response?.status)
-    return Promise.reject(error)
+  (response) => response,
+  (error) => {
+    console.log(error.response?.status);
+    return Promise.reject(error);
   }
-)
+);

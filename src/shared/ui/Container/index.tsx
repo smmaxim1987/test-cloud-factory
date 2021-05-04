@@ -1,14 +1,15 @@
-import React from 'react'
-import { View, ViewProps, } from 'react-native'
-import { styles } from './useStyles'
+import React from "react";
+import { View, ViewProps } from "react-native";
+import { styles } from "./useStyles";
 
-export interface ContainerProps extends ViewProps {
+export interface ContainerProps extends ViewProps {}
 
-}
-
-export const Container: React.FC<ContainerProps> = ({ style, children, ...props }) => (
+export const Container: React.FC<ContainerProps> = ({
+  style,
+  children,
+  ...props
+}) => (
   <View style={[styles.root, style]} {...props}>
     {children}
   </View>
-)
-
+);

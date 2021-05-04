@@ -1,19 +1,17 @@
-import { StyleSheet } from "react-native";
-
+import { StyleSheet, Dimensions } from "react-native";
 
 export const styles = StyleSheet.create({
-  table: {
-  },
+  table: {},
   row: {
     flexDirection: "row",
-    alignItems: 'center',
-    flexWrap: 'nowrap',
-    borderBottomColor: 'gray',
+    alignItems: "center",
+    flexWrap: "nowrap",
+    borderBottomColor: "#DDDDDD",
     borderBottomWidth: 1,
   },
   col: {
     padding: 5,
     flex: 1,
     flexGrow: 1,
-  }
+  },
 });

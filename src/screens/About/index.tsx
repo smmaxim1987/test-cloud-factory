@@ -1,21 +1,25 @@
-import React from 'react'
-import { SafeAreaView, Text } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
-import { Button, Headline, Container } from '@shared/ui'
+import React from "react";
+import { SafeAreaView, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Button, Headline, Container } from "@shared/ui";
+import { styles } from "./useStyles";
 
 export const AboutScreen: React.FC = () => {
-
   const navigation = useNavigation();
-  const handleGotoQuotes = () => navigation.navigate('Quotes')
+  const handleGotoQuotes = () => navigation.navigate("Quotes");
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.root}>
       <Container>
-        <Headline title='О приложение' />
-        <Text>Тестовое задание для RN-разработчика.</Text>
-        <Text>Приложение "Котировки"</Text>
-        <Button onPress={handleGotoQuotes}>Перейти в экран Котировки</Button>
+        <Headline title="О приложение" />
+        <View style={styles.description}>
+          <Text style={styles.descriptionText}>
+            Тестовое задание для RN-разработчика.
+          </Text>
+          <Text style={styles.descriptionText}>Приложение "Котировки"</Text>
+        </View>
+        <Button onPress={handleGotoQuotes}>Перейти к котировкам</Button>
       </Container>
     </SafeAreaView>
-  )
-}
+  );
+};

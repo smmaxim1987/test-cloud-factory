@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
 
-
 export const styles = StyleSheet.create({
   head: {
-    backgroundColor: 'gray',
+    backgroundColor: "#DDDDDD",
+    borderRadius: 5,
   },
   headText: {
-    fontWeight: 'bold'
-  }
+    fontWeight: "bold",
+  },
 });
