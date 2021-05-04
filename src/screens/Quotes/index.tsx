@@ -1,24 +1,38 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text } from 'react-native'
-import { tickerApi } from '@shared/api'
-import { Ticker } from '@shared/interfaces'
+import { SafeAreaView, Text } from 'react-native'
 import { QuotetsTableTicker } from '@features'
+import { useNavigation } from '@react-navigation/native';
+import { Button, Loading, Headline, Container } from '@shared/ui'
+import { observer } from "mobx-react-lite"
+import { tickerStore } from './model'
 
-interface QuotesProps { }
+export const QuotesScreen: React.FC = observer(() => {
 
-export const QuotesScreen: React.FC<QuotesProps> = () => {
-
-  const [ticker, setTicker] = useState<Record<string, Ticker>>({})
+  const [isInit, setIsInit] = useState<boolean>(false)
+  const { items, isLoading, getList } = tickerStore
+  const navigation = useNavigation();
+  const handleGotoAbout = () => navigation.navigate('About')
 
   useEffect(() => {
-    tickerApi.getList()
-      .then(({ data }) => setTicker(data))
+    getList().finally(() => setIsInit(true))
   }, [])
 
+  useEffect(() => {
+    const getListEveryFiveSeconds: NodeJS.Timeout | null = Object.values(items).length > 0 ? setInterval(getList, 5000) : null
+    return () => {
+      getListEveryFiveSeconds && clearInterval(getListEveryFiveSeconds)
+    }
+  }, [items])
+
   return (
-    <View>
-      <Text>Экран "Катировки"</Text>
-      <QuotetsTableTicker items={ticker} />
-    </View>
+    <SafeAreaView>
+      <Container>
+        <Headline title='Катировки' />
+        <Button onPress={handleGotoAbout}>Вернуться</Button>
+        {isLoading && !isInit ? <Loading /> : (
+          <QuotetsTableTicker items={items} />
+        )}
+      </Container>
+    </SafeAreaView>
   )
-}
+})

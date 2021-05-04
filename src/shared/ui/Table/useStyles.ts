@@ -1,18 +1,19 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
 
 export const styles = StyleSheet.create({
   table: {
-    maxWidth: Dimensions.get('window').width
   },
   row: {
-    flex: 1,
-    flexDirection: 'row',
+    flexDirection: "row",
+    alignItems: 'center',
     flexWrap: 'nowrap',
-    alignItems: 'flex-start'
+    borderBottomColor: 'gray',
+    borderBottomWidth: 1,
   },
   col: {
     padding: 5,
     flex: 1,
+    flexGrow: 1,
   }
 });

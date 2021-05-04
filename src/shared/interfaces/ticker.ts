@@ -1,4 +1,4 @@
-export type Ticker = {
+export type TickerType = {
   id: number
   last: string,
   lowestAsk: string,
@@ -10,8 +10,4 @@ export type Ticker = {
   postOnly: string
   high24hr: string
   low24hr: string
-}
-
-export interface iTicker extends Ticker {
-  name: String
 }

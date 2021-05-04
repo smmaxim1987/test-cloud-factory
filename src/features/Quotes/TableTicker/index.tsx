@@ -1,12 +1,14 @@
 import React, { useMemo } from 'react'
 import { Table, TableCol, TableRow } from '@shared/ui'
-import { Ticker } from '@shared/interfaces'
+import { TickerType } from '@shared/interfaces'
+import { View, Text } from 'react-native'
+import { styles } from './useStyles'
 
 export interface QuotetsTableTickerProps {
-  items: Record<string, Ticker>
+  items: Record<string, TickerType>
 }
 
-interface ITicker extends Ticker {
+interface ITicker extends TickerType {
   name: string
 }
 
@@ -15,25 +17,29 @@ export const QuotetsTableTicker: React.FC<QuotetsTableTickerProps> = ({
 }) => {
 
   const tickerItems: ITicker[] = useMemo(() => Object.entries(items).map(item => ({ name: item[0], ...item[1] })), [items])
+  const formatNumber = (value: number): string => value.toFixed(2);
 
   return (
-    <Table
-      body={tickerItems}
-      renderHead={<TableRow>
-        {['Name', 'Last', 'Highest Bid', 'Percent Change'].map(name => (
-          <TableCol key={name}>{name}</TableCol>
-        ))}
-      </TableRow>}
-      renderBodyItem={item => (
-        <TableRow>
-          <TableCol>{item.name}</TableCol>
-          <TableCol>{item.last}</TableCol>
-          <TableCol>{item.highestBid}</TableCol>
-          <TableCol>{item.percentChange}</TableCol>
-        </TableRow>
-      )}
-      keyBodyExtractor={item => item.name}
-    />
+    <>
+      <Table
+        renderHead={
+          <TableRow style={styles.head}>
+            {['Name', 'Last', 'Highest Bid', 'Percent Change'].map(name => (
+              <TableCol textProps={{ style: styles.headText }} key={name}>{name}</TableCol>
+            ))}
+          </TableRow>}
+        bodyData={tickerItems}
+        renderBodyItem={item => (
+          <TableRow>
+            <TableCol>{item.name}</TableCol>
+            <TableCol>{formatNumber(+item.last)}</TableCol>
+            <TableCol>{formatNumber(+item.highestBid)}</TableCol>
+            <TableCol>{formatNumber(+item.percentChange)}</TableCol>
+          </TableRow>
+        )}
+        keyBodyExtractor={item => item.name}
+      />
+    </>
   )
 
 }
