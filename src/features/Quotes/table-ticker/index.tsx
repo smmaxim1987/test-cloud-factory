@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
-import { Table, TableCol, TableRow } from "@shared/ui";
+import { Table, TableCol, TableRow } from "ui";
 import { ViewProps } from "react-native";
 import { TickerType } from "@shared/interfaces";
-import { styles } from "./useStyles";
+import { styles } from "./styles";
 
 export interface QuotetsTableTickerProps extends ViewProps {
   items: Record<string, TickerType>;

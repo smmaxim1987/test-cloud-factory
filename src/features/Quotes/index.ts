@@ -1,1 +1,1 @@
-export * from "./TableTicker";
+export * from "./table-ticker";

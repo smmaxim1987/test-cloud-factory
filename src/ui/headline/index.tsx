@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, TextProps } from "react-native";
-import { styles } from "./useStyles";
+import { styles } from "./styles";
 
 export interface HeadlineProps extends TextProps {
   title: string;

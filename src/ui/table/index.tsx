@@ -1,6 +1,6 @@
 import React, { isValidElement } from "react";
 import { FlatList, View, Text, ViewProps, TextProps } from "react-native";
-import { styles } from "./useStyles";
+import { styles } from "./styles";
 
 export interface TableProps<T> extends ViewProps {
   bodyData: T[];

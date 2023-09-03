@@ -1,6 +1,6 @@
 import React, { isValidElement } from "react";
 import { View, Text } from "react-native";
-import { styles } from "./useStyles";
+import { styles } from "./styles";
 
 export interface AlertProps {
   severity: "success" | "error" | "info" | "warning";

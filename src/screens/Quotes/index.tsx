@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView, View } from "react-native";
 import { QuotetsTableTicker } from "@features";
 import { useNavigation } from "@react-navigation/native";
-import { Button, Loading, Headline, Container, Alert } from "@shared/ui";
+import { Button, Loading, Headline, Container, Alert } from "ui";
 import { observer } from "mobx-react-lite";
 import { tickerStore } from "./model";
-import { styles } from "./useStyles";
+import { styles } from "./styles";
 
 export const QuotesScreen: React.FC = observer(() => {
   const [isInit, setIsInit] = useState<boolean>(false);

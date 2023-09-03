@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ViewProps } from "react-native";
-import { styles } from "./useStyles";
+import { styles } from "./styles";
 
 export interface ContainerProps extends ViewProps {}
 
