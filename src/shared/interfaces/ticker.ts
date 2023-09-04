@@ -1,13 +1,20 @@
-export type TickerType = {
-  id: number;
-  last: string;
-  lowestAsk: string;
-  highestBid: string;
-  percentChange: string;
-  baseVolume: string;
-  quoteVolume: string;
-  isFrozen: string;
-  postOnly: string;
-  high24hr: string;
-  low24hr: string;
-};
+export interface Ticker {
+  symbol: string;
+  open: string;
+  low: string;
+  high: string;
+  close: string;
+  quantity: string;
+  amount: string;
+  tradeCount: number;
+  startTime: number;
+  closeTime: number;
+  displayName: string;
+  dailyChange: string;
+  bid: string;
+  bidQuantity: string;
+  ask: string;
+  askQuantity: string;
+  ts: number;
+  markPrice: string;
+}

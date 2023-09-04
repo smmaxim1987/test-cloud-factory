@@ -4,13 +4,10 @@ import { styles } from "./styles";
 
 export interface AlertProps {
   severity: "success" | "error" | "info" | "warning";
+  children: React.ReactNode;
 }
 
-export const Alert: React.FC<AlertProps> = ({
-  severity,
-  children,
-  ...props
-}) => {
+export function Alert({ severity, children, ...props }: AlertProps) {
   const currentSeverity = (variant: string) => {
     switch (variant) {
       case "success":
@@ -33,4 +30,4 @@ export const Alert: React.FC<AlertProps> = ({
       )}
     </View>
   );
-};
+}

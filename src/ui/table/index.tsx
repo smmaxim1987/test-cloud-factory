@@ -23,6 +23,8 @@ export function Table<T>({
         data={bodyData}
         renderItem={({ item }) => renderBodyItem(item)}
         keyExtractor={keyBodyExtractor}
+        initialNumToRender={20}
+        maxToRenderPerBatch={20}
       />
     </View>
   );

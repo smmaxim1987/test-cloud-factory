@@ -2,11 +2,12 @@ import React from "react";
 import { SafeAreaView, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Button, Headline, Container } from "ui";
+import { paths } from "constants/paths";
 import { styles } from "./styles";
 
 export const AboutScreen: React.FC = () => {
-  const navigation = useNavigation();
-  const handleGotoQuotes = () => navigation.navigate("Quotes");
+  const { navigate } = useNavigation();
+  const handleGotoQuotes = () => navigate(paths.quotes() as never);
 
   return (
     <SafeAreaView style={styles.root}>
